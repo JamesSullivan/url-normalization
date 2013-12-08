@@ -97,7 +97,7 @@ public class DomainName implements HostName {
 
     @Override
     public String getOptimizedForProximityOrder() {
-	return reverseConcatenate(stripWWW(this.parts), DOMAIN_NAME_DELIMITER);
+	return reverseConcatenate(this.parts, DOMAIN_NAME_DELIMITER);
     }
 
     @Override
