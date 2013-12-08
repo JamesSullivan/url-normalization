@@ -1,9 +1,9 @@
 ## Fork of url-normalization to provide url-normalization more in line with Nutch
 
 Differences between this fork and the orginal as documented below to keep more in line with Nutch
- * <b>Removing the default port:</b>
+ * <b>Default port:</b>
  The default port (port 80 for the “http” scheme) is kept during URL normalization. 
- * <b>Removing “www” as the first domain label:</b>
+ * <b>“www” as the first domain label:</b>
  www is kept during normalization
 
 ## url-normalization
