@@ -130,7 +130,7 @@ public class URL {
     }
 
     public String getNormalizedUrl() {
-	return this.authority.getOptimizedForProximityOrder() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
+	return this.authority.getOptimizedForProximityOrder() + ":" + this.getScheme() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
     }
 
     /**
