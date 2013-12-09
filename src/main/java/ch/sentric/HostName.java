@@ -28,9 +28,19 @@ public interface HostName {
     public String getOptimizedForProximityOrder();
 
     /**
+     * This method will return an IP address as it is and a Domain Name with the
+     * parts in reversed order including www in line with Nutch normalization
+     * 
+     * @return optimized host name
+     */
+    public String getNutchOptimizedForProximityOrder();
+    
+    /**
      * Returns the hostname.
      * 
      * @return hostname
      */
     public String getAsString();
+
+	
 }
