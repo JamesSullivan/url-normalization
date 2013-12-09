@@ -1,10 +1,11 @@
 ## Fork of url-normalization to provide url-normalization more in line with Nutch
 
-Differences between this fork and the orginal as documented below to keep more in line with Nutch
+Differences between this fork and the orginal as documented below
+Adds method getNutchNormalizedUrl() to URL.java
  * <b>Default port:</b>
- The default port (port 80 for the “http” scheme) is kept during URL normalization. 
+ The default port (port 80 for the “http” scheme) is kept during URL Nutch normalization. 
  * <b>“www” as the first domain label:</b>
- www is kept during normalization
+ www is kept during Nutch normalization
 
 ## url-normalization
 
@@ -47,14 +48,14 @@ Rather than providing several traditional types of normalization for SEO purpose
  For consistency, percent-encoded octets in the ranges of ALPHA (%41–%5A and %61–%7A), DIGIT (%30–%39), hyphen (%2D), period (%2E), underscore (%5F), or tilde (%7E) should not be created by URI producers and, when found in a URI, they will be decoded to their corresponding unreserved characters by this normalizer.
        Example: http://www.example.com/%7Eusername/ → com.example/~username/
 
- * <b>Not valid in this fork -- Removing the default port:</b>
+ * <b>Removing the default port:</b>
  The default port (port 80 for the “http” scheme) is removed from a URL. 
        Example: http://www.example.com:80/bar.html → com.example/bar.html
 
 
 # Normalizations that Change Semantics
 
- * <b>Not valid in this fork -- Removing “www” as the first domain label:</b>
+ * <b>Removing “www” as the first domain label:</b>
  Some websites operate in two Internet domains: one whose least significant label is “www” and another whose name is the result of omitting the least significant label from the name of the first. For example, http://example.com/ and http://www.example.com/ may access the same website. Many websites redirect the user from the www to the non-www address or vice versa. This normalizer determines one of these URLs redirects to the other and normalize all URLs by removing the “www” first level domain.
        Example: http://www.example.com/search → com.example/search
  * <b>Sorting the query parameters:</b>
