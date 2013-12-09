@@ -108,16 +108,16 @@ public class URLTest {
 
     @Test
     public void testGetNormalizedUrl() {
-	assertEquals("com.domain.www:http", this.standardPlainUrl.getNormalizedUrl());
-	assertEquals("com.domain.www:http", this.standardUrlWithPort.getNormalizedUrl());
-	assertEquals("com.domain.test:http", this.standardUrlWithSubDomain.getNormalizedUrl());
-	assertEquals("com.domain.test:http/test/path", this.urlWithSubDomainAndPath.getNormalizedUrl());
-	assertEquals("com.domain.www:http/tes+t/pat+h", this.urlWithSpaceInPath.getNormalizedUrl());
-	assertEquals("com.domain.www:http/tes++++t/pat+h", this.urlWithSeveralSpacesInPath.getNormalizedUrl());
-	assertEquals("com.domain.www:http/test/path.php?a=15&val=12&x=10", this.urlWithUnsortedQuery.getNormalizedUrl());
-	assertEquals("com.domain.www:http/te+st/path.php?a=15&val=12&x=10", this.urlWithUnsortedQueryAndSpace.getNormalizedUrl());
-	assertEquals("com.domain.www:http/test/path.php?a=15&val=12&x=10", this.urlWithUserAndPass.getNormalizedUrl());
-	assertEquals("com.domain.www:http/test/path?a=15&val=12&x=10", this.urlWithTrailingSlashInPathAndQuery.getNormalizedUrl());
+	assertEquals("com.domain", this.standardPlainUrl.getNormalizedUrl());
+	assertEquals("com.domain", this.standardUrlWithPort.getNormalizedUrl());
+	assertEquals("com.domain.test", this.standardUrlWithSubDomain.getNormalizedUrl());
+	assertEquals("com.domain.test/test/path", this.urlWithSubDomainAndPath.getNormalizedUrl());
+	assertEquals("com.domain/tes+t/pat+h", this.urlWithSpaceInPath.getNormalizedUrl());
+	assertEquals("com.domain/tes++++t/pat+h", this.urlWithSeveralSpacesInPath.getNormalizedUrl());
+	assertEquals("com.domain/test/path.php?a=15&val=12&x=10", this.urlWithUnsortedQuery.getNormalizedUrl());
+	assertEquals("com.domain/te+st/path.php?a=15&val=12&x=10", this.urlWithUnsortedQueryAndSpace.getNormalizedUrl());
+	assertEquals("com.domain/test/path.php?a=15&val=12&x=10", this.urlWithUserAndPass.getNormalizedUrl());
+	assertEquals("com.domain/test/path?a=15&val=12&x=10", this.urlWithTrailingSlashInPathAndQuery.getNormalizedUrl());
     }
 
     @Test
@@ -191,7 +191,7 @@ public class URLTest {
 	assertEquals("http://www.domain.com", this.standardPlainUrl.getRepairedUrl());
 	assertEquals("", this.standardPlainUrl.getQuery().getAsString());
 	assertEquals("", this.standardPlainUrl.getPath().getAsString());
-	assertEquals("com.domain.www:http", this.standardPlainUrl.getNormalizedUrl());
+	assertEquals("com.domain", this.standardPlainUrl.getNormalizedUrl());
 	assertEquals(null, this.standardPlainUrl.getFragment());
 	assertEquals("www.domain.com", this.standardPlainUrl.getAuthority().getAsString());
     }
