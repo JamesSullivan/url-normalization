@@ -94,6 +94,10 @@ public class Authority {
 	return this.hostName.getOptimizedForProximityOrder();
     }
 
+    public String getNutchOptimizedForProximityOrder() {
+	return this.hostName.getNutchOptimizedForProximityOrder();
+    }
+    
     @Override
     public int hashCode() {
 	final int prime = 31;
