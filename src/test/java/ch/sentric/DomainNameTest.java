@@ -51,8 +51,8 @@ public class DomainNameTest {
 
     @Test
     public void testGetOptimizedForProximityOrder() {
-	Assert.assertEquals("ro.koch.www", new DomainName("www.KOCH.rO").getOptimizedForProximityOrder());
-	Assert.assertEquals("ro.koch.www", new DomainName("WWW.KOCH.rO").getOptimizedForProximityOrder());
+	Assert.assertEquals("ro.koch", new DomainName("www.KOCH.rO").getOptimizedForProximityOrder());
+	Assert.assertEquals("ro.koch", new DomainName("WWW.KOCH.rO").getOptimizedForProximityOrder());
 	Assert.assertEquals("net.faz", new DomainName("faz.Net").getOptimizedForProximityOrder());
 	Assert.assertEquals("net.faz.ww", new DomainName("ww.faz.Net").getOptimizedForProximityOrder());
 	Assert.assertEquals("net.faz.wwww", new DomainName("wwww.faz.Net").getOptimizedForProximityOrder());
