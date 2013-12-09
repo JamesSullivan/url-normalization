@@ -87,6 +87,11 @@ public class IPv4Address implements HostName {
     public String getOptimizedForProximityOrder() {
 	return getAsString();
     }
+    
+    @Override
+    public String getNutchOptimizedForProximityOrder() {
+	return getAsString();
+    }
 
     public long getAddress() {
 	return this.address;
