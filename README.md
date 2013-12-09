@@ -1,6 +1,7 @@
 ## Fork of url-normalization to provide url-normalization more in line with Nutch
 
-Differences between this fork and the orginal as documented below
+Differences between this fork and the orginal.
+
 Adds method getNutchNormalizedUrl() to URL.java
  * <b>Default port:</b>
  The default port (port 80 for the “http” scheme) is kept during URL Nutch normalization. 
