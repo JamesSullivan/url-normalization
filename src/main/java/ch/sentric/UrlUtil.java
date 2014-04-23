@@ -255,4 +255,17 @@ public class UrlUtil {
 	return sb.toString();
     }
 
+    /**
+     * Quick hack job to unnormalize url
+     * assumes http
+     * @param strURL
+     * @return unnormalized url with http:// in front as string
+     */
+    public static String reverseNormalizedUrl(String strURL) {
+    int firstSlash = strURL.indexOf("/");
+    if(firstSlash < 0) return strURL;
+    String site = reverseUrlOrder(strURL.substring(0,firstSlash));
+	return "http://" + site + strURL.substring(firstSlash);
+    }
+
 }

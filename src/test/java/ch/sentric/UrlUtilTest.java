@@ -208,4 +208,9 @@ public class UrlUtilTest {
     public void getParentSiteReturnSameSite6() {
 	assertEquals("1.2.3.4", UrlUtil.getParentSite("1.2.3.4"));
     }
+    
+    @Test
+    public void reverseNormalizedURLShouldHaveHTTPinFront() {
+	assertEquals("http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:31998L0014:EN:NOT", UrlUtil.reverseNormalizedUrl("eu.europa.eur-lex/LexUriServ/LexUriServ.do?uri=CELEX:31998L0014:EN:NOT"));
+    }
 }
