@@ -267,5 +267,21 @@ public class UrlUtil {
     String site = reverseUrlOrder(strURL.substring(0,firstSlash));
 	return "http://" + site + strURL.substring(firstSlash);
     }
+    
+    /**
+     * Quick hack job to unnormalize Nutchnormalized url
+     * start gov.ecfr.www:http/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl
+     * assumes http
+     * @param strURL
+     * @return unnormalized url with http:// in front as string
+     */
+    public static String reverseNutchNormalizedUrl(String strURL) {
+    int firstColon = strURL.indexOf(":");
+    if(firstColon < 0) return strURL;
+    String site = reverseUrlOrder(strURL.substring(0,firstColon));
+    int firstSlash = strURL.indexOf("/");
+    if(firstSlash <= firstColon) return strURL.substring(firstColon+1) + "://" + site;
+	return strURL.substring(firstColon+1, firstSlash) + "://" + site + strURL.substring(firstSlash);
+    }
 
 }

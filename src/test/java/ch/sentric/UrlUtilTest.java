@@ -213,4 +213,9 @@ public class UrlUtilTest {
     public void reverseNormalizedURLShouldHaveHTTPinFront() {
 	assertEquals("http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:31998L0014:EN:NOT", UrlUtil.reverseNormalizedUrl("eu.europa.eur-lex/LexUriServ/LexUriServ.do?uri=CELEX:31998L0014:EN:NOT"));
     }
+    
+    @Test
+    public void reverseNutchNormalizedURLShouldHaveHTTPinFront() {
+	assertEquals("http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl", UrlUtil.reverseNutchNormalizedUrl("gov.ecfr.www:http/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl"));
+    }
 }
