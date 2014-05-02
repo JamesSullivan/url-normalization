@@ -7,6 +7,13 @@ Adds method getNutchNormalizedUrl() to URL.java
  The default port (port 80 for the “http” scheme) is kept during URL Nutch normalization. 
  * <b>“www” as the first domain label:</b>
  www is kept during Nutch normalization
+ * <b>removes session ids and other non unique page identifiers from urls:</b>
+ sid, phpsessid and sessionid are removed
+ removes interpage href anchors such as site.com#location
+ cleans ?&var=value into ?var=value 
+ cleans multiple sequential ampersands into a single ampersand
+ removes trailing ?
+ removes duplicate slashes
 
 ## url-normalization
 

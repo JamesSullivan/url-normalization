@@ -235,4 +235,11 @@ public class URLTest {
 	    fail("getUri() should not throw URISyntaxException when url contains no fragment");
 	}
     }
+    
+    @Test
+    public void testGetNutchNormalizedUrl() throws MalformedURLException {
+	assertEquals("gov.ecfr.www:http/cgi-bin/text-idx?node=49:6.1.2.3.38.2&rgn=div6/", new URL("http://www.ecfr.gov/cgi-bin/text-idx?SID=ffba705dd59401932f2839cd6da55ca1&node=49:6.1.2.3.38.2&rgn=div6/").getNutchNormalizedUrl());
+	//assertEquals("http://www.domain.com:80", this.standardUrlWithPort.getRepairedUrl());
+    }
+
 }

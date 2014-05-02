@@ -20,6 +20,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -133,8 +134,21 @@ public class URL {
     return this.authority.getOptimizedForProximityOrder() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
     }
     
-    public String getNutchNormalizedUrl() {
-	return this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
+    public String getNutchNormalizedUrl() throws MalformedURLException {
+    	// removes session ids from urls
+    	String url = this.givenInputUrl.replaceAll("(?i)(;?\\b_?(l|j|bv_)?(sid|phpsessid|sessionid)=.*?)(\\?|&|#|$)", "");
+        // removes interpage href anchors such as site.com#location
+    	url = url.replaceAll("#.*?(\\?|&|$)", "");
+        // cleans ?&var=value into ?var=value 
+    	url = url.replaceAll("\\?&","\\?");
+    	// cleans multiple sequential ampersands into a single ampersand
+    	url = url.replaceAll("&{2,}", "&");
+    	// removes trailing ?
+    	url = url.replaceAll("[\\?&\\.]$", "");
+    	// removes duplicate slashes
+    	url = url.replaceAll("(?<!:)/{2,}", "/");
+        this.parse(url);                                          
+	    return this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
     }
 
     /**
