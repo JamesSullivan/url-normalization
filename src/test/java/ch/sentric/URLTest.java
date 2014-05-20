@@ -241,5 +241,11 @@ public class URLTest {
 	assertEquals("gov.ecfr.www:http/cgi-bin/text-idx?node=49:6.1.2.3.38.2&rgn=div6/", new URL("http://www.ecfr.gov/cgi-bin/text-idx?SID=ffba705dd59401932f2839cd6da55ca1&node=49:6.1.2.3.38.2&rgn=div6/").getNutchNormalizedUrl());
 	//assertEquals("http://www.domain.com:80", this.standardUrlWithPort.getRepairedUrl());
     }
+    // http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
+    @Test
+    public void testGetNutchNormalizedUrl2() throws MalformedURLException {
+	assertEquals("uk.co.thetimes.store:http/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61", new URL("http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61").getNutchNormalizedUrl());
+	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
+    }
 
 }

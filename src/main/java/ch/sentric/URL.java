@@ -148,7 +148,10 @@ public class URL {
     	// removes duplicate slashes
     	url = url.replaceAll("(?<!:)/{2,}", "/");
         this.parse(url);                                          
-	    return this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme() + this.path.getReEncoded().getAsString() + this.query.getAsString(true, true);
+	    String output = this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme();
+	    String path = this.path.getReEncoded().getAsString();
+	    if(path.trim().length() < 1) { path = "/";}
+	    return output + path + this.query.getAsString(true, true);
     }
 
     /**
