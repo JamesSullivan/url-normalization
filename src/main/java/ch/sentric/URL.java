@@ -153,7 +153,6 @@ public class URL {
     	url = url.replaceAll("(?<!:)/{2,}", "/");
         this.parse(url);      
 	    String output = this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme();
-	    System.out.println("path1 " + path.getAsString());
 	    String path = this.path.getReEncoded().getAsString() + dontDrop;
 	    if(path.trim().length() < 1) { path = "/";}
 	    return output + path + this.query.getAsString(true, true);
