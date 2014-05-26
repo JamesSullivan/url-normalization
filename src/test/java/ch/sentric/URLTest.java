@@ -247,5 +247,18 @@ public class URLTest {
 	assertEquals("uk.co.thetimes.store:http/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61", new URL("http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61").getNutchNormalizedUrl());
 	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
     }
+    
+    @Test
+    public void testGetNutchNormalizedHttpsUrl() throws MalformedURLException {
+	assertEquals("gov.data.api:https/regulations/v3/download?api_key=4uetGHQda2lTEBZ14yPtPmL6LuACMGI4wWog4aCy&contentType=html&documentId=NHTSA-2010-0132-0034", new URL("https://api.data.gov/regulations/v3/download?api_key=4uetGHQda2lTEBZ14yPtPmL6LuACMGI4wWog4aCy&contentType=html&documentId=NHTSA-2010-0132-0034").getNutchNormalizedUrl());
+	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
+    }
+    
+    @Test
+    public void testGetNutchNormalizedShebangUrl() throws MalformedURLException {
+	assertEquals("gov.regulations.www:http/#!documentDetail;D=NHTSA-2012-0120-0001", new URL("http://www.regulations.gov/#!documentDetail;D=NHTSA-2012-0120-0001").getNutchNormalizedUrl());
+	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
+    }
+    
 
 }

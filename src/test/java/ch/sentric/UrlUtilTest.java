@@ -218,4 +218,9 @@ public class UrlUtilTest {
     public void reverseNutchNormalizedURLShouldHaveHTTPinFront() {
 	assertEquals("http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl", UrlUtil.reverseNutchNormalizedUrl("gov.ecfr.www:http/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl"));
     }
+    
+    @Test
+    public void reverseNutchNormalizedShebangURL() {
+	assertEquals("http://www.regulations.gov/#!documentDetail;D=NHTSA-2012-0120-0001", UrlUtil.reverseNutchNormalizedUrl("gov.regulations.www:http/#!documentDetail;D=NHTSA-2012-0120-0001"));
+    }
 }

@@ -138,6 +138,10 @@ public class URL {
     	// removes session ids from urls
     	String url = this.givenInputUrl.replaceAll("(?i)(;?\\b_?(l|j|bv_)?(sid|phpsessid|sessionid)=.*?)(\\?|&|#|$)", "");
         // removes interpage href anchors such as site.com#location
+    	
+    	String dontDrop = "";
+    	int n = url.indexOf(".gov/#!");
+    	if(n>1){ dontDrop = url.substring(n+4);}
     	url = url.replaceAll("#.*?(\\?|&|$)", "");
         // cleans ?&var=value into ?var=value 
     	url = url.replaceAll("\\?&","\\?");
@@ -147,9 +151,10 @@ public class URL {
     	url = url.replaceAll("[\\?&\\.]$", "");
     	// removes duplicate slashes
     	url = url.replaceAll("(?<!:)/{2,}", "/");
-        this.parse(url);                                          
+        this.parse(url);      
 	    String output = this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme();
-	    String path = this.path.getReEncoded().getAsString();
+	    System.out.println("path1 " + path.getAsString());
+	    String path = this.path.getReEncoded().getAsString() + dontDrop;
 	    if(path.trim().length() < 1) { path = "/";}
 	    return output + path + this.query.getAsString(true, true);
     }
