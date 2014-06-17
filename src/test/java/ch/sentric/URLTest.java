@@ -260,5 +260,10 @@ public class URLTest {
 	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
     }
     
-
+    //http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.174.01.0028.01.ENG
+    @Test
+    public void testGetNutchNormalizedQuestionSlant() throws MalformedURLException {
+	assertEquals("eu.europa.eur-lex:http/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.174.01.0028.01.ENG", new URL("http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.174.01.0028.01.ENG").getNutchNormalizedUrl());
+    }
+    
 }

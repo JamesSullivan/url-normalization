@@ -151,10 +151,19 @@ public class URL {
     	url = url.replaceAll("[\\?&\\.]$", "");
     	// removes duplicate slashes
     	url = url.replaceAll("(?<!:)/{2,}", "/");
-        this.parse(url);      
+    	//System.out.println("url1: " + url);
+        this.parse(url);  
+        //System.out.println("url2: " + url);
 	    String output = this.authority.getNutchOptimizedForProximityOrder() + ":" + this.getScheme();
+	    //System.out.println("output: " + output);
 	    String path = this.path.getReEncoded().getAsString() + dontDrop;
+	   // System.out.println("path: " + path);
 	    if(path.trim().length() < 1) { path = "/";}
+	    if(this.getGivenInputUrl().indexOf("/?") > -1){
+	    	if(!path.endsWith("/")) { path = path + "/";}
+	    }
+	    //System.out.println("Fragment: " + this.fragment + "\t" + this.getFragment() + "\tnotnormalized: " + this.getGivenInputUrl());
+	    //System.out.println("return: " +  output + path +  this.query.getAsString(true, true));
 	    return output + path + this.query.getAsString(true, true);
     }
 
