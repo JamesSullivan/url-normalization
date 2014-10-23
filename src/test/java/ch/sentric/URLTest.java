@@ -266,4 +266,9 @@ public class URLTest {
 	assertEquals("eu.europa.eur-lex:http/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.174.01.0028.01.ENG", new URL("http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.174.01.0028.01.ENG").getNutchNormalizedUrl());
     }
     
+    // http://www.nhtsa.gov/staticfiles/nvs/misc/FORM%20-%20206.doc
+    @Test
+    public void testGetNutchNormalizedPlus() throws MalformedURLException {
+	assertEquals("gov.nhtsa.www:http/staticfiles/nvs/misc/FORM%20-%20206.doc", new URL("http://www.nhtsa.gov/staticfiles/nvs/misc/FORM+-+206.doc").getNutchNormalizedUrl());
+    }
 }

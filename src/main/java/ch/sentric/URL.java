@@ -162,6 +162,7 @@ public class URL {
 	    if(this.getGivenInputUrl().indexOf("/?") > -1){
 	    	if(!path.endsWith("/")) { path = path + "/";}
 	    }
+    	path = path.replaceAll("\\+", "%20");
 	    //System.out.println("Fragment: " + this.fragment + "\t" + this.getFragment() + "\tnotnormalized: " + this.getGivenInputUrl());
 	    //System.out.println("return: " +  output + path +  this.query.getAsString(true, true));
 	    return output + path + this.query.getAsString(true, true);
