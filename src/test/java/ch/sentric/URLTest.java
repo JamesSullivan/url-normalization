@@ -248,6 +248,17 @@ public class URLTest {
 	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
     }
     
+   // @Test
+   // public void testGetNutchNormalizedUrl3() throws MalformedURLException {
+	//assertEquals("org.unece.www:http/trans/main/wp29/wp29wgs/wp29gen/wp291997_stts.html", new URL("http://www.unece.org/trans/main/wp29/wp29wgs/wp29gen/wp291997_stts.html?expandable=1").getNutchNormalizedUrl());
+	// http://store.thetimes.co.uk/?ILC=INT-TNL_The_Times-teaser-image-7_01_2013_-61
+   // }
+    @Test
+    public void testGetNutchNormalizedUrl3() throws MalformedURLException {
+ 	assertEquals("gov.ecfr.www:http/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl", new URL("http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl#500").getNutchNormalizedUrl());
+ 	//http://www.ecfr.gov/cgi-bin/text-idx?c=ecfr&tpl=/ecfrbrowse/Title49/49cfrv6_02.tpl#500
+     }    
+    
     @Test
     public void testGetNutchNormalizedHttpsUrl() throws MalformedURLException {
 	assertEquals("gov.data.api:https/regulations/v3/download?api_key=4uetGHQda2lTEBZ14yPtPmL6LuACMGI4wWog4aCy&contentType=html&documentId=NHTSA-2010-0132-0034", new URL("https://api.data.gov/regulations/v3/download?api_key=4uetGHQda2lTEBZ14yPtPmL6LuACMGI4wWog4aCy&contentType=html&documentId=NHTSA-2010-0132-0034").getNutchNormalizedUrl());

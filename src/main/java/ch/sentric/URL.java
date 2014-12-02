@@ -22,7 +22,7 @@ import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 
 /**
  * The url class.
@@ -83,7 +83,8 @@ public class URL {
      */
     public URI getURI() throws URISyntaxException {
 	URI uri = null;
-	if (StringUtils.isNotBlank(getFragment())) {
+	//if (StringUtils.isNotBlank(getFragment())) {
+	if(getFragment() != null){
 	    uri = new URI(getUrlWithoutFragment());
 	} else {
 	    uri = new URI(getGivenInputUrl());
@@ -92,7 +93,11 @@ public class URL {
     }
 
     public String getUrlWithoutFragment() {
-	return getGivenInputUrl().substring(0, getGivenInputUrl().indexOf("#"));
+    if(getGivenInputUrl().indexOf("#") > -1) {
+	  return getGivenInputUrl().substring(0, getGivenInputUrl().indexOf("#"));
+    } else {
+    	return getGivenInputUrl();
+    }
     }
 
     public String getGivenInputUrl() {
